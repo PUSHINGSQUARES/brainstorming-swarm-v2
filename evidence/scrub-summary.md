@@ -16,4 +16,4 @@ The negative tests use invented values in disposable Git repositories. They cove
 
 Two independent reviewers inspect the final public tree and local Git history with private context. One checks infrastructure, dispatch, and codename fingerprints. The other checks identity, brand voice, and recognizable examples. The reports remain outside this repository. Publication waits for both verdicts to pass on the final candidate.
 
-The license, native host receipts, and final publication decision are separate release gates.
+Native host receipts and the final public publication decision are separate release gates.

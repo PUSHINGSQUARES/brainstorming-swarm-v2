@@ -48,3 +48,7 @@ The checker validates structure, links, local artifact presence, and recorded ev
 ## Boundaries
 
 The package supplies a method, templates, and native-host guides. It does not supply a universal scheduler or require a paid provider. Any external processing needs authorization for its cost and privacy boundary. Design approval precedes PRD writing; review of the written PRD precedes task planning. Execution and publication are separate decisions.
+
+## License
+
+[MIT](LICENSE).
