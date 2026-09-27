@@ -1,0 +1,36 @@
+{
+  "campaign_id": "partial-signage",
+  "status": "design_pending",
+  "roles": [
+    {
+      "leg_id": "judge-missing",
+      "role": "judge",
+      "status": "incomplete",
+      "artifact": "digests/judge-missing.json"
+    },
+    {
+      "leg_id": "child-timeout",
+      "role": "gather",
+      "status": "termination_unknown",
+      "artifact": "digests/child-timeout.json"
+    }
+  ],
+  "approaches": [],
+  "synthesis": {
+    "accepted_leg_ids": [],
+    "selected_approach_id": null
+  },
+  "ledger": "ledger.md",
+  "lifecycle": {
+    "child-timeout": {
+      "deadline_expired": true,
+      "stop_requested": true,
+      "stop_confirmed": false,
+      "stop_receipt": null
+    },
+    "judge-missing": {
+      "artifact_received": false,
+      "correction_attempts": 1
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "campaign_id": "library-wayfinding",
+  "status": "design_pending",
+  "roles": [
+    {
+      "leg_id": "g1",
+      "role": "gather",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "unknown",
+      "routing_reason": "Visitor accessibility lens",
+      "artifact": "digests/g1.r1.json",
+      "status": "incomplete"
+    },
+    {
+      "leg_id": "g2",
+      "role": "gather",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "unknown",
+      "routing_reason": "Staff maintenance lens",
+      "artifact": "digests/g2.r1.json",
+      "status": "incomplete"
+    },
+    {
+      "leg_id": "d1",
+      "role": "draft",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "unknown",
+      "routing_reason": "Wall signs approach author",
+      "artifact": "digests/d1.r1.json",
+      "status": "incomplete"
+    },
+    {
+      "leg_id": "d2",
+      "role": "draft",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "unknown",
+      "routing_reason": "Portable guide approach author",
+      "artifact": "digests/d2.r1.json",
+      "status": "incomplete"
+    },
+    {
+      "leg_id": "j1",
+      "role": "judge",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "unknown",
+      "routing_reason": "Independent review of a1; not its author",
+      "artifact": "digests/j1.r1.json",
+      "status": "incomplete"
+    },
+    {
+      "leg_id": "j2",
+      "role": "judge",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "unknown",
+      "routing_reason": "Independent review of a2; not its author",
+      "artifact": "digests/j2.r1.json",
+      "status": "incomplete"
+    }
+  ],
+  "approaches": [],
+  "synthesis": {
+    "accepted_leg_ids": [],
+    "selected_approach_id": null
+  },
+  "ledger": "LEDGER.md",
+  "events": "events.ndjson"
+}

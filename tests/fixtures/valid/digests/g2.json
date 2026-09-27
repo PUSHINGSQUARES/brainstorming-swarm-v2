@@ -1,0 +1,32 @@
+{
+  "leg_id": "g2",
+  "host": "example-host",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "gather",
+  "artifact": "digests/g2.json",
+  "findings": [
+    {
+      "evidence": {
+        "kind": "url",
+        "url": "https://example.org/spec",
+        "section": "Overview"
+      },
+      "finding_id": "f1",
+      "source_fact": "The public example guide has an overview."
+    },
+    {
+      "evidence": {
+        "kind": "supplied",
+        "id": "context-1"
+      },
+      "finding_id": "f2",
+      "source_fact": "The requester supplied a color preference."
+    }
+  ],
+  "gaps": [],
+  "revision": 1,
+  "supersedes": null,
+  "lens": "Source review",
+  "inferences": []
+}

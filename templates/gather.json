@@ -1,0 +1,51 @@
+{
+  "leg_id": "g1",
+  "host": "example-host",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "gather",
+  "artifact": "digests/g1.r1.json",
+  "revision": 1,
+  "supersedes": null,
+  "lens": "Visitor accessibility",
+  "findings": [
+    {
+      "finding_id": "f1",
+      "source_fact": "The invented brief describes a narrow entrance wall.",
+      "evidence": {
+        "kind": "file",
+        "path": "sources/brief.md",
+        "lines": [
+          1,
+          3
+        ]
+      }
+    },
+    {
+      "finding_id": "f2",
+      "source_fact": "Replace this example with a fact verified from the cited section.",
+      "evidence": {
+        "kind": "url",
+        "url": "https://example.org/spec",
+        "section": "Overview"
+      }
+    },
+    {
+      "finding_id": "f3",
+      "source_fact": "Replace this example with a fact verified from the registered supplied context.",
+      "evidence": {
+        "kind": "supplied",
+        "id": "context-1"
+      }
+    }
+  ],
+  "inferences": [
+    {
+      "claim": "A fixed sign may be constrained by the narrow wall; measure the space before choosing a layout.",
+      "premise_ids": ["f1"]
+    }
+  ],
+  "gaps": [
+    "Visitor testing has not occurred."
+  ]
+}

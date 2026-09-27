@@ -1,0 +1,45 @@
+{
+  "leg_id": "d-decal",
+  "host": "example-host",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "draft",
+  "artifact": "digests/d-decal.json",
+  "revision": 1,
+  "supersedes": null,
+  "approach_id": "decal",
+  "author_leg_id": "d-decal",
+  "title": "Floor decal route",
+  "central_assumption": "The supplier claim about twelve-point text at ten metres will hold for the route decals.",
+  "proposal": "Put twelve-point route decals at the junctions, as proposed by the supplier.",
+  "evidence": [
+    {
+      "kind": "file",
+      "path": "sources/brief.md",
+      "lines": [
+        3,
+        5
+      ]
+    },
+    {
+      "kind": "file",
+      "path": "sources/pilot-observations.md",
+      "lines": [
+        3,
+        3
+      ]
+    }
+  ],
+  "dependencies": [
+    "Site measurement and visitor trial"
+  ],
+  "risks": [
+    "The pilot contradicts the supplier claim: four of six volunteers had to move closer."
+  ],
+  "rough_effort": "One layout study and one supervised trial.",
+  "falsifying_test": "Reject the proposed twelve-point size because the pilot already contradicts the universal claim; reconsider floor placement only after a new readability and safe-passage trial.",
+  "read_paths": [
+    "sources/brief.md",
+    "sources/pilot-observations.md"
+  ]
+}

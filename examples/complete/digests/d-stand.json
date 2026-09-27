@@ -1,0 +1,45 @@
+{
+  "leg_id": "d-stand",
+  "host": "example-host",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "draft",
+  "artifact": "digests/d-stand.json",
+  "revision": 1,
+  "supersedes": null,
+  "approach_id": "stand",
+  "author_leg_id": "d-stand",
+  "title": "Freestanding sign route",
+  "central_assumption": "Portable stands fit the corridor without blocking passage.",
+  "proposal": "Put large-text portable signs at both junctions and a paper backup at entry.",
+  "evidence": [
+    {
+      "kind": "file",
+      "path": "sources/brief.md",
+      "lines": [
+        3,
+        5
+      ]
+    },
+    {
+      "kind": "file",
+      "path": "sources/pilot-observations.md",
+      "lines": [
+        3,
+        3
+      ]
+    }
+  ],
+  "dependencies": [
+    "Site measurement and visitor trial"
+  ],
+  "risks": [
+    "A stand may obstruct circulation. The pilot does not validate a final type size."
+  ],
+  "rough_effort": "One layout study and one supervised trial.",
+  "falsifying_test": "Reject if the trial fails readability or safe passage.",
+  "read_paths": [
+    "sources/brief.md",
+    "sources/pilot-observations.md"
+  ]
+}

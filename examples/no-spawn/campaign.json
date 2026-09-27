@@ -1,0 +1,25 @@
+{
+  "campaign_id": "solo-signage",
+  "status": "solo_analysis",
+  "roles": [
+    {
+      "leg_id": "solo-gather",
+      "role": "gather",
+      "host": "local-session",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "unavailable",
+      "routing_reason": "No native spawn tool",
+      "artifact": "digests/solo-gather.json",
+      "status": "accepted"
+    }
+  ],
+  "approaches": [],
+  "synthesis": {
+    "accepted_leg_ids": [],
+    "selected_approach_id": null
+  },
+  "ledger": "ledger.md"
+}

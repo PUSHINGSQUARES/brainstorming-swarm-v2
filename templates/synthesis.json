@@ -1,0 +1,13 @@
+{
+  "accepted_leg_ids": [],
+  "selected_approach_id": null,
+  "adopted_clauses": [],
+  "rejected_approaches": [],
+  "dissent": [],
+  "uncertainty": [
+    "This template has no accepted campaign evidence."
+  ],
+  "recommendation": "Pending evidence acceptance and independent critique.",
+  "design_approval": "pending",
+  "written_prd_review": "pending"
+}

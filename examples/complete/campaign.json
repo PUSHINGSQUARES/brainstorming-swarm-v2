@@ -1,0 +1,119 @@
+{
+  "campaign_id": "riverbend-signage",
+  "status": "design_pending",
+  "roles": [
+    {
+      "leg_id": "g-access",
+      "role": "gather",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "artifact": "digests/g-access.json",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Independent discovery lens",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "g-install",
+      "role": "gather",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "artifact": "digests/g-install.json",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Independent discovery lens",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "d-decal",
+      "role": "draft",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "artifact": "digests/d-decal.json",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Distinct concept",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "d-stand",
+      "role": "draft",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "artifact": "digests/d-stand.json",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Distinct concept",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "j-decal",
+      "role": "judge",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "artifact": "digests/j-decal.json",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Independent critique",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "j-stand",
+      "role": "judge",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "artifact": "digests/j-stand.json",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Independent critique",
+      "status": "accepted"
+    }
+  ],
+  "approaches": [
+    {
+      "approach_id": "decal",
+      "author_leg_id": "d-decal"
+    },
+    {
+      "approach_id": "stand",
+      "author_leg_id": "d-stand"
+    }
+  ],
+  "synthesis": {
+    "accepted_leg_ids": [
+      "g-access",
+      "g-install",
+      "d-decal",
+      "d-stand",
+      "j-decal",
+      "j-stand"
+    ],
+    "selected_approach_id": null,
+    "adopted_clauses": [],
+    "rejected_approaches": [
+      "decal"
+    ],
+    "dissent": [
+      "The decal author believes floor markings could reduce clutter after a real viewing trial."
+    ],
+    "uncertainty": [
+      "Viewing distance and mounting safety remain untested."
+    ],
+    "recommendation": "Develop the freestanding concept only after its revise conditions are met and a fresh review is recorded. No approach is selected yet.",
+    "design_approval": "pending",
+    "written_prd_review": "pending"
+  },
+  "ledger": "LEDGER.md"
+}

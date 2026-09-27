@@ -1,0 +1,15 @@
+{
+  "legs": [
+    {
+      "leg_id": "g1",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "j1",
+      "status": "incomplete"
+    }
+  ],
+  "synthesis_accepted_leg_ids": [
+    "g1"
+  ]
+}

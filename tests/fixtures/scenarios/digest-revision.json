@@ -1,0 +1,19 @@
+{
+  "revisions": [
+    {
+      "artifact": "digest-revision/gather.r1.json",
+      "sha256": "d8849ca7d5f1956fa4d5cc7d34a63cf41463edf593c65075f5265c7082ae50ad",
+      "revision": 1
+    },
+    {
+      "artifact": "digest-revision/gather.r2.json",
+      "sha256": "da505873002f09bb869e6fb59cdd9f44ebed1a5808ec81eada23e8a5297dc50e",
+      "revision": 2,
+      "supersedes": "digest-revision/gather.r1.json"
+    }
+  ],
+  "ledger": "digest-revision/ledger.md",
+  "dissent": [
+    "The first reviewer still objects to the untested distance."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "campaign_id": "toy-signage",
+  "status": "design_pending",
+  "roles": [
+    {
+      "leg_id": "g1",
+      "role": "gather",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "First independent lens",
+      "artifact": "digests/g1.json",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "g2",
+      "role": "gather",
+      "host": "example-host",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Second independent lens",
+      "artifact": "digests/g2.json",
+      "status": "accepted"
+    }
+  ],
+  "approaches": [],
+  "synthesis": {
+    "accepted_leg_ids": ["g1", "g2"],
+    "selected_approach_id": null
+  },
+  "ledger": "LEDGER.md"
+}

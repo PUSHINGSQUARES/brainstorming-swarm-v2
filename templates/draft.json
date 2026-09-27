@@ -1,0 +1,29 @@
+{
+  "leg_id": "d1",
+  "host": "example-host",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "draft",
+  "artifact": "digests/d1.r1.json",
+  "revision": 1,
+  "supersedes": null,
+  "approach_id": "a1",
+  "author_leg_id": "d1",
+  "title": "Modular wall signs",
+  "central_assumption": "Visitors can read the signs from the entrance.",
+  "proposal": "Place a compact directory near the entrance and consistent floor markers at decision points.",
+  "evidence": [
+    {
+      "kind": "supplied",
+      "id": "context-1"
+    }
+  ],
+  "dependencies": [
+    "Confirm viewing distance and permitted mounting locations."
+  ],
+  "risks": [
+    "A narrow wall may limit readable type size."
+  ],
+  "rough_effort": "One layout study and one visitor trial.",
+  "falsifying_test": "Reject this layout if a visitor trial shows that the required text cannot be read at the intended distance."
+}

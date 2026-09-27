@@ -1,0 +1,30 @@
+{
+  "leg_id": "solo-gather",
+  "host": "local-session",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "gather",
+  "artifact": "digests/solo-gather.json",
+  "revision": 1,
+  "supersedes": null,
+  "lens": "Solo review",
+  "findings": [
+    {
+      "evidence": {
+        "kind": "file",
+        "path": "sources/brief.md",
+        "lines": [
+          3,
+          3
+        ]
+      },
+      "finding_id": "f1",
+      "source_fact": "The hall needs one entrance direction sign."
+    }
+  ],
+  "gaps": [
+    "No visitor test was supplied.",
+    "No independent critique occurred."
+  ],
+  "inferences": []
+}

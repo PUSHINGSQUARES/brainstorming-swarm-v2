@@ -1,0 +1,36 @@
+{
+  "leg_id": "j1",
+  "host": "example-host",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "judge",
+  "artifact": "digests/j1.r1.json",
+  "revision": 1,
+  "supersedes": null,
+  "target_id": "a1",
+  "target_artifact": "digests/d1.r1.json",
+  "target_revision": 1,
+  "judge_leg_id": "j1",
+  "verdict": "revise",
+  "severity": "major",
+  "reason": "The proposal assumes readable text without measured viewing distances.",
+  "counterevidence": [
+    {
+      "source_fact": "The supplied brief describes a narrow entrance wall.",
+      "evidence": {
+        "kind": "file",
+        "path": "sources/brief.md",
+        "lines": [1, 3]
+      },
+      "bearing_on_target": "The draft needs a site measurement before its arrival-sign placement is feasible."
+    }
+  ],
+  "consequence": "The entrance directory may fail its accessibility goal.",
+  "keep_clauses": [
+    "Keep consistent markers at decision points."
+  ],
+  "unknowns": [
+    "Actual viewing distances and visitor reading needs."
+  ],
+  "required_revision": "Measure available space and test readability before selecting this approach."
+}

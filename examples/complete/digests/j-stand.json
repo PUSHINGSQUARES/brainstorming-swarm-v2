@@ -1,0 +1,32 @@
+{
+  "leg_id": "j-stand",
+  "host": "example-host",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "judge",
+  "artifact": "digests/j-stand.json",
+  "revision": 1,
+  "supersedes": null,
+  "read_paths": [
+    "sources/brief.md",
+    "sources/pilot-observations.md",
+    "digests/d-stand.json"
+  ],
+  "target_id": "stand",
+  "target_artifact": "digests/d-stand.json",
+  "target_revision": 1,
+  "judge_leg_id": "j-stand",
+  "verdict": "revise",
+  "severity": "major",
+  "reason": "The draft already requires site measurement and a visitor trial, and keeps final type size provisional. No supplied source demonstrates a defect in the larger-text stand. Its core safe-passage assumption still needs measurable acceptance criteria and results before this approach can be selected.",
+  "counterevidence": [],
+  "consequence": "A stand could block the route.",
+  "keep_clauses": [
+    "Large text and paper backup.",
+    "Provisional type size and a trial that can reject failed readability or safe passage."
+  ],
+  "unknowns": [
+    "Corridor clearance and a readable final type size."
+  ],
+  "required_revision": "Define clearance and readability pass criteria, then supply site measurements and trial results before selection."
+}

@@ -1,0 +1,65 @@
+{
+  "leg_id": "g-access",
+  "host": "example-host",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "gather",
+  "artifact": "digests/g-access.json",
+  "revision": 1,
+  "supersedes": null,
+  "lens": "Readability and access",
+  "read_paths": [
+    "sources/brief.md",
+    "sources/pilot-observations.md"
+  ],
+  "findings": [
+    {
+      "evidence": {
+        "kind": "file",
+        "path": "sources/brief.md",
+        "lines": [
+          5,
+          5
+        ]
+      },
+      "finding_id": "f1",
+      "source_fact": "The supplier claims every resident can read twelve-point text from ten metres."
+    },
+    {
+      "evidence": {
+        "kind": "file",
+        "path": "sources/pilot-observations.md",
+        "lines": [
+          3,
+          3
+        ]
+      },
+      "finding_id": "f2",
+      "source_fact": "In the corridor pilot, two of six volunteers read the twelve-point sign correctly at ten metres; four moved closer."
+    },
+    {
+      "evidence": {
+        "kind": "file",
+        "path": "sources/brief.md",
+        "lines": [
+          3,
+          3
+        ]
+      },
+      "finding_id": "f3",
+      "source_fact": "Visitors may arrive without a phone."
+    }
+  ],
+  "gaps": [
+    "The small pilot does not establish a final type size or test all residents."
+  ],
+  "inferences": [
+    {
+      "claim": "The pilot result contradicts the supplier's universal readability claim for this setting.",
+      "premise_ids": [
+        "f1",
+        "f2"
+      ]
+    }
+  ]
+}

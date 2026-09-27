@@ -1,0 +1,35 @@
+{
+  "drafts": [
+    {
+      "artifact": "material-revision/draft.r1.json",
+      "sha256": "d8257f3716454289460bab5218c564398fbab773bfb92c0dd239fb55a709e4bc",
+      "revision": 1
+    },
+    {
+      "artifact": "material-revision/draft.r2.json",
+      "sha256": "b5cbd52d0fc91bd24d9942fc950587ef13155f933e9226486e4bfb34117a9892",
+      "supersedes": "material-revision/draft.r1.json",
+      "revision": 2
+    }
+  ],
+  "judges": [
+    {
+      "judge_id": "judge-r1",
+      "target_artifact": "material-revision/draft.r1.json",
+      "target_sha256": "d8257f3716454289460bab5218c564398fbab773bfb92c0dd239fb55a709e4bc",
+      "state": "invalidated",
+      "verdict": "revise"
+    },
+    {
+      "judge_id": "judge-r2",
+      "target_artifact": "material-revision/draft.r2.json",
+      "target_sha256": "b5cbd52d0fc91bd24d9942fc950587ef13155f933e9226486e4bfb34117a9892",
+      "state": "current",
+      "verdict": "keep"
+    }
+  ],
+  "synthesis": {
+    "adopted_judge_id": "judge-r2",
+    "adopted_draft_artifact": "material-revision/draft.r2.json"
+  }
+}

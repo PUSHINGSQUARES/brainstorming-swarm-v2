@@ -1,0 +1,56 @@
+{
+  "leg_id": "j-decal",
+  "host": "example-host",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "judge",
+  "artifact": "digests/j-decal.json",
+  "revision": 1,
+  "supersedes": null,
+  "read_paths": [
+    "sources/brief.md",
+    "sources/pilot-observations.md",
+    "digests/d-decal.json"
+  ],
+  "target_id": "decal",
+  "target_artifact": "digests/d-decal.json",
+  "target_revision": 1,
+  "judge_leg_id": "j-decal",
+  "verdict": "kill",
+  "severity": "major",
+  "reason": "The supplier claims every resident can read twelve-point text at ten metres, but only two of six pilot volunteers did so; four moved closer. The proposed decal size fails this evidence check.",
+  "counterevidence": [
+    {
+      "evidence": {
+        "kind": "file",
+        "path": "sources/brief.md",
+        "lines": [
+          5,
+          5
+        ]
+      },
+      "source_fact": "The supplier makes a universal readability claim for twelve-point text at ten metres.",
+      "bearing_on_target": "The draft adopts this universal claim as its central assumption; the separately anchored pilot result below contradicts that assumption."
+    },
+    {
+      "evidence": {
+        "kind": "file",
+        "path": "sources/pilot-observations.md",
+        "lines": [
+          3,
+          3
+        ]
+      },
+      "source_fact": "Only two of six volunteers read the sign at ten metres; four moved closer.",
+      "bearing_on_target": "The pilot undermines the proposed twelve-point distance premise in this setting."
+    }
+  ],
+  "consequence": "Visitors could miss the route.",
+  "keep_clauses": [
+    "Test junction placement."
+  ],
+  "unknowns": [
+    "A readable type size for this setting and floor-surface safety."
+  ],
+  "required_revision": "Drop the twelve-point distance claim. Test a new type size and floor placement before reconsideration."
+}
