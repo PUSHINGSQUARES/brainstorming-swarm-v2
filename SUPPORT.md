@@ -1,15 +1,17 @@
 # Host Support
 
-Matrix updated on 2026-09-27. No tuple below has passed every live support gate. Codex has a bounded local probe, but its exact desktop app version, independently authenticated launch prompt, and public receipt remain open. Installed tools and model catalogues alone are inventory, not support evidence.
+Matrix updated on 2026-09-27. No tuple below has passed every live support gate. Codex and Grok have bounded probes, but neither has a complete public receipt or clean first-use proof. Installed tools and model catalogues alone are inventory, not support evidence.
 
 | Host | Target model | Status | Host version | Model ID | Probe date | Model control | Effort control | Receipt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Claude | Opus 5.5 | candidate | unverified | unverified | unverified | unverified | unverified | none |
 | Codex | GPT-6 Sol | candidate | unverified | gpt-6-sol | 2026-09-27 | observed locally | observed locally | none |
-| Grok | Grok 4.7 | candidate | unverified | unverified | unverified | unverified | unverified | none |
+| Grok | Grok 4.7 | candidate | 1.0.41 | grok-4.7-build | 2026-09-27 | model selection observed | session summary high | none |
 | Muse | Unverified | candidate | unverified | unverified | unverified | unverified | unverified | none |
 
 Muse is a named target host; its exact runtime model is unverified. No model identity or availability is inferred from that name.
+
+The Grok row records a narrow synthetic probe, not native child support. Two separate top-level sessions overlapped and completed. Their session-selected model was `grok-4.7`; stream usage identified the producing model as `grok-4.7-build`. Session summaries reported `high` effort, while the retained gather streams did not expose effort per assistant turn. A full skill run, failure and cancellation lifecycle outcomes, and independent child control remain unverified.
 
 ## Status And Expiry
 
