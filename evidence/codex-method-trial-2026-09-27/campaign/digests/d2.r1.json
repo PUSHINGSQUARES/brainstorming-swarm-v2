@@ -1,0 +1,38 @@
+{
+  "leg_id": "d2",
+  "host": "Codex desktop native collaboration",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "draft",
+  "artifact": "digests/d2.r1.json",
+  "revision": 1,
+  "supersedes": null,
+  "approach_id": "a2",
+  "author_leg_id": "d2",
+  "title": "South gate pocket route guide",
+  "central_assumption": "A guide handed to each interested visitor at the south gate can stay with them long enough to make the paved step-free route usable without a phone or installed route signs. Gate distribution and paper handling capacity are unverified.",
+  "proposal": "Develop a small, high-contrast paper guide handed to visitors at the south gate. Its front shows a water symbol, a bold 'step-free paved route' label, and a simple traced line from 'You are here: south gate' to the staffed West Canopy refill point. Mark the lawn shortcut as not step-free, and show the paved route's estimated four extra minutes without suggesting that this is a measured universal travel time. Put brief directions and a return-to-gate cue on the reverse. The packet establishes that the paved route to West Canopy is step-free, but it supplies no turn-by-turn geometry, so trace and check the line on site before printing. West Canopy is only a candidate for the required shaded destination: its name does not prove shade. Do not label the guide 'shaded refill' or distribute it for that purpose until shade is checked. Leave opening times off until decided; a dated morning issue can direct visitors to ask gate staff for current service information, subject to a feasible staff procedure. This portable concept does not rely on installed route signs or connectivity.",
+  "evidence": [
+    { "kind": "file", "path": "sources/brief.md", "lines": [3, 3] },
+    { "kind": "file", "path": "sources/brief.md", "lines": [7, 7] },
+    { "kind": "file", "path": "sources/operations-note.md", "lines": [3, 7] },
+    { "kind": "file", "path": "sources/visitor-notes.md", "lines": [3, 6] }
+  ],
+  "dependencies": [
+    "Verify that West Canopy actually offers shade at the refill location and during intended use; the source does not establish shade from its name.",
+    "Trace the paved south gate to West Canopy route, identify decision points, and check the printed diagram with wheelchair users before issuing it. The packet gives no route geometry.",
+    "Confirm permission, gate staffing, print quantity, daily replenishment, weather protection, and collection or disposal capacity. Paper handling capacity is unverified; the once-morning paper-sign update allowance does not establish capacity to hand out guides.",
+    "Obtain a complete priced total within £8,000, including design, printing, gate distribution, replenishment, collection, and removal. Affordability is unverified.",
+    "Decide and communicate refill-point operating hours before any time-specific claim. Hours are unverified, including after the evening performance.",
+    "Obtain management approval before deployment; no design has been approved."
+  ],
+  "risks": [
+    "Visitors may lose, discard, or decline a handout, leaving no route guidance at later decision points.",
+    "A diagram with unverified turns could send visitors onto the non-step-free lawn shortcut.",
+    "Printing an unverified shade or opening-hours claim would misrepresent the destination.",
+    "Daily guide distribution and discarded paper may exceed staff or cleanup capacity, and full costs may exceed the cap.",
+    "Once printed, a guide may be stale if route access or refill service changes during the day."
+  ],
+  "rough_effort": "One on-site route trace and shade check, one guide layout, a small print proof, a south gate comprehension and wheelchair-route trial, and a full cost and operations check before any three-week pilot. No time or cost estimate is established by the packet.",
+  "falsifying_test": "Test a draft guide from the south gate with visitors, including wheelchair users, without prompting or installed route signs. Reject or revise if they choose the lawn shortcut, cannot follow the paved line to the refill point, or mistake the guide for a verified shade or opening-hours promise. Do not advance to distribution if the shade check, staffing and paper-handling plan, complete cost including distribution and removal within £8,000, or operating-hours decision fails."
+}

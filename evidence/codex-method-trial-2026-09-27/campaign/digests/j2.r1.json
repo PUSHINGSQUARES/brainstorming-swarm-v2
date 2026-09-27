@@ -1,0 +1,69 @@
+{
+  "leg_id": "j2",
+  "host": "Codex desktop native collaboration",
+  "model": "session-default",
+  "effort": "session-default",
+  "role": "judge",
+  "artifact": "digests/j2.r1.json",
+  "revision": 1,
+  "supersedes": null,
+  "target_id": "a2",
+  "target_artifact": "digests/d2.r1.json",
+  "target_revision": 1,
+  "judge_leg_id": "j2",
+  "verdict": "revise",
+  "severity": "major",
+  "reason": "The gate-only guide is a plausible conditional concept, but its central delivery assumption remains unproven. The draft acknowledges unknown distribution capacity and the risk of discarded guides, yet its proposed test mainly checks navigation among people given a guide. That would not establish whether enough visitors receive, keep, and consult one at later route decisions. This is an unresolved feasibility question, not a demonstrated failure. The other necessary conditions are correctly identified as gates rather than treated as established facts: West Canopy's name does not prove shade, the paved route is documented step-free but its turns are not supplied, operating hours are undecided, full printing/distribution/removal cost is unpriced, and management has not approved the design.",
+  "counterevidence": [
+    {
+      "source_fact": "Four visitors said they would follow a sign with a water symbol and a large arrow before reading a paragraph of directions.",
+      "evidence": { "kind": "file", "path": "sources/visitor-notes.md", "lines": [4, 4] },
+      "bearing_on_target": "This observation supports testing a prominent cue, but it does not establish that visitors will accept and retain a pocket guide. The draft's water symbol alone cannot validate its delivery mechanism."
+    },
+    {
+      "source_fact": "Volunteers can update paper signs once each morning.",
+      "evidence": { "kind": "file", "path": "sources/operations-note.md", "lines": [5, 5] },
+      "bearing_on_target": "This establishes a limited sign-update capacity, not continuous gate handout, replenishment, weather protection, or discarded-paper collection capacity. The draft acknowledges this gap; it remains a deployment gate."
+    },
+    {
+      "source_fact": "The paved route from the south gate to West Canopy is step-free.",
+      "evidence": { "kind": "file", "path": "sources/operations-note.md", "lines": [4, 4] },
+      "bearing_on_target": "The destination route is supported, but the clause gives no turns or decision-point geometry for a printable traced line. The draft correctly requires a site trace; the diagram cannot be finalized from this packet."
+    },
+    {
+      "source_fact": "Two staffed refill points are available: West Canopy and North Arbor.",
+      "evidence": { "kind": "file", "path": "sources/operations-note.md", "lines": [3, 3] },
+      "bearing_on_target": "Staffing identifies a candidate refill point but does not establish that the refill location is shaded. The draft already gates the shade claim on a check."
+    },
+    {
+      "source_fact": "The £8,000 pilot cap includes fabrication, placement, and removal.",
+      "evidence": { "kind": "file", "path": "sources/operations-note.md", "lines": [6, 6] },
+      "bearing_on_target": "The proposed guide has no total price. Printing, distribution, replenishment, and collection or removal must be costed within the cap before a pilot decision. The draft already calls for this; the gap remains unresolved."
+    },
+    {
+      "source_fact": "Refill-point operating hours have not yet been decided.",
+      "evidence": { "kind": "file", "path": "sources/operations-note.md", "lines": [7, 7] },
+      "bearing_on_target": "Leaving times off avoids a false promise, but a gate-staff information procedure cannot be assumed to exist or substitute for a decision on service hours. The draft labels that procedure conditional."
+    },
+    {
+      "source_fact": "Management approval has not been granted for any design.",
+      "evidence": { "kind": "file", "path": "sources/operations-note.md", "lines": [6, 6] },
+      "bearing_on_target": "The guide cannot be deployed without approval. The draft explicitly recognizes this; it is an open authorization gate, not an adverse contradiction."
+    }
+  ],
+  "consequence": "A guide may work for trial participants yet fail as a site-wide wayfinding system if visitors miss it at entry or lack it when a route choice arises. Pilot deployment also remains contingent on the draft's acknowledged shade, route-trace, hours, cost, operations, and approval checks.",
+  "keep_clauses": [
+    "Keep the documented south gate to West Canopy paved route as the step-free candidate, and mark the lawn shortcut as not step-free.",
+    "Keep the water symbol, high-contrast layout, no-smartphone format, and cautious description of the estimated four extra minutes as testable design choices.",
+    "Keep explicit pre-distribution gates for shade, route geometry, staffing and paper handling, full cost, operating hours, and management approval."
+  ],
+  "unknowns": [
+    "Whether West Canopy provides shade at the actual refill location during intended use.",
+    "The south gate to West Canopy route's turns and decision points, and whether a pocket diagram can convey them accurately.",
+    "Handout uptake, retention, and availability at later decisions across the intended visitor flow.",
+    "Gate distribution, replenishment, weather protection, and discarded-paper handling capacity over three weeks.",
+    "Complete design, printing, distribution, replenishment, collection, and removal cost against the £8,000 cap.",
+    "Decided operating hours, a feasible staff information procedure, and management approval."
+  ],
+  "required_revision": "Specify a test that observes unprompted guide uptake at the south gate, retention and use at each mapped decision point, and practical gate throughput and paper handling, alongside the already proposed wheelchair route trial. State a fallback or a no-go threshold if gate-only distribution fails. Keep the guide conditional until the documented shade, geometry, hours, full cost, staffing, and approval gates are resolved."
+}

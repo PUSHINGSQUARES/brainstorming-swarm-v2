@@ -10,7 +10,7 @@ from check_public_tokens import NonTextFileError, ROOT, public_files, safe_file_
 
 
 PATH_RE = re.compile(
-    r"(?i)(?<![A-Za-z0-9])(?:/(?:Volumes|Users|home)/[A-Za-z0-9_. -]+"
+    r"(?i)(?<![A-Za-z0-9])(?:/(?:Volumes|Users|home|root)/[A-Za-z0-9_. -]+"
     r"|[A-Z]:\\Users\\[A-Za-z0-9_. -]+)"
 )
 CREDENTIAL_RES = (

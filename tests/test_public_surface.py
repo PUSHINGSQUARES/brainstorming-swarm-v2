@@ -132,6 +132,14 @@ class PublicSurfaceTests(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertNotIn(fake, result.stdout)
 
+    def test_unix_root_operator_path_is_red_without_echo(self):
+        fake = "/ro" + "ot/InventedAgent/session"
+        (self.root / "notes.md").write_text(fake + "\n", encoding="utf-8")
+        result = self.run_gate(SURFACE_CHECK, "paths")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn(file_id("notes.md") + ":1", result.stdout)
+        self.assertNotIn(fake, result.stdout + result.stderr)
+
     def test_ignored_private_key_file_is_red(self):
         (self.root / ".gitignore").write_text("*.pem\n", encoding="utf-8")
         fake = "-----BEGIN " + "PRIVATE KEY-----"

@@ -1,6 +1,6 @@
 # Host Support
 
-Matrix updated on 2026-09-27. No tuple below has passed every live support gate. Codex and Grok have bounded probes, but neither has a complete public receipt or clean first-use proof. Installed tools and model catalogues alone are inventory, not support evidence.
+Matrix updated on 2026-09-27. No tuple below has passed every live support gate. Codex has a [fresh-checkout method trial](evidence/codex-method-trial-2026-09-27.md), and Grok has a narrower host probe. Neither has a complete public native-host receipt. Installed tools and model catalogues alone are inventory, not support evidence.
 
 | Host | Target model | Status | Host version | Model ID | Probe date | Model control | Effort control | Receipt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |

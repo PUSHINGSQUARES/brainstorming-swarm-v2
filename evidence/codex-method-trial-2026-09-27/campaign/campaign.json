@@ -1,0 +1,283 @@
+{
+  "campaign_id": "cedar-wayfinding-firstuse-r2",
+  "status": "design_pending",
+  "roles": [
+    {
+      "leg_id": "g1",
+      "role": "gather",
+      "host": "Codex desktop native collaboration",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Visitor comprehension and access lens",
+      "artifact": "digests/g1.r2.json",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "g2",
+      "role": "gather",
+      "host": "Codex desktop native collaboration",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Operations, supplier, and cost lens",
+      "artifact": "digests/g2.r1.json",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "d1",
+      "role": "draft",
+      "host": "Codex desktop native collaboration",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Physical route marking approach author",
+      "artifact": "digests/d1.r1.json",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "d2",
+      "role": "draft",
+      "host": "Codex desktop native collaboration",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Portable paper guide approach author",
+      "artifact": "digests/d2.r2.json",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "j1",
+      "role": "judge",
+      "host": "Codex desktop native collaboration",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Independent review of a1",
+      "artifact": "digests/j1.r1.json",
+      "status": "accepted"
+    },
+    {
+      "leg_id": "j2",
+      "role": "judge",
+      "host": "Codex desktop native collaboration",
+      "model": "session-default",
+      "effort": "session-default",
+      "source_of_choice": "session",
+      "required": false,
+      "observed_availability": "available",
+      "routing_reason": "Independent review of a2",
+      "artifact": "digests/j2.r2.json",
+      "status": "accepted"
+    }
+  ],
+  "approaches": [
+    {
+      "approach_id": "a1",
+      "author_leg_id": "d1"
+    },
+    {
+      "approach_id": "a2",
+      "author_leg_id": "d2"
+    }
+  ],
+  "synthesis": {
+    "accepted_leg_ids": [
+      "g1",
+      "g2",
+      "d1",
+      "d2",
+      "j1",
+      "j2"
+    ],
+    "selected_approach_id": null,
+    "decision_dependencies": [
+      {
+        "condition": "West Canopy is an available staffed refill point.",
+        "required_for_outcome": true,
+        "status": "supported",
+        "evidence": [
+          {
+            "kind": "file",
+            "path": "sources/operations-note.md",
+            "lines": [
+              3,
+              3
+            ]
+          }
+        ],
+        "verification_step": ""
+      },
+      {
+        "condition": "The paved route from the south gate to West Canopy is step-free.",
+        "required_for_outcome": true,
+        "status": "supported",
+        "evidence": [
+          {
+            "kind": "file",
+            "path": "sources/operations-note.md",
+            "lines": [
+              4,
+              4
+            ]
+          }
+        ],
+        "verification_step": ""
+      },
+      {
+        "condition": "The refill location at West Canopy has usable shade during the intended service period.",
+        "required_for_outcome": true,
+        "status": "unverified",
+        "evidence": [],
+        "verification_step": "Inspect the actual refill position at the times the point would operate; record shade evidence before claiming this destination meets the shaded requirement."
+      },
+      {
+        "condition": "The sign trail can be placed at every actual route decision point without obstructing access and with site permission.",
+        "required_for_outcome": true,
+        "status": "unverified",
+        "evidence": [],
+        "verification_step": "Walk and map the paved route, identify each decision point, check accessible placement, and obtain placement permission."
+      },
+      {
+        "condition": "First-time visitors can follow the proposed signs from the south gate to the refill point without a phone, avoiding the east fountain and lawn shortcut.",
+        "required_for_outcome": true,
+        "status": "unverified",
+        "evidence": [
+          {
+            "kind": "file",
+            "path": "sources/visitor-notes.md",
+            "lines": [
+              3,
+              5
+            ]
+          }
+        ],
+        "verification_step": "Trial prototype signs with first-time visitors including wheelchair users; record West arrival, east-fountain misroutes, lawn misroutes, and points of confusion."
+      },
+      {
+        "condition": "The sign pilot total, including fabrication, placement, upkeep, and removal, is at most \u00a38,000.",
+        "required_for_outcome": true,
+        "status": "unverified",
+        "evidence": [
+          {
+            "kind": "file",
+            "path": "sources/brief.md",
+            "lines": [
+              7,
+              7
+            ]
+          },
+          {
+            "kind": "file",
+            "path": "sources/operations-note.md",
+            "lines": [
+              6,
+              6
+            ]
+          }
+        ],
+        "verification_step": "Obtain a complete costed plan or quote covering every required pilot item and compare the total to \u00a38,000."
+      },
+      {
+        "condition": "Volunteers can update paper signs once each morning.",
+        "required_for_outcome": false,
+        "status": "supported",
+        "evidence": [
+          {
+            "kind": "file",
+            "path": "sources/operations-note.md",
+            "lines": [
+              5,
+              5
+            ]
+          }
+        ],
+        "verification_step": ""
+      },
+      {
+        "condition": "An operating rule exists for a same-day closure or route change after the morning sign update.",
+        "required_for_outcome": true,
+        "status": "unverified",
+        "evidence": [
+          {
+            "kind": "file",
+            "path": "sources/operations-note.md",
+            "lines": [
+              5,
+              5
+            ]
+          }
+        ],
+        "verification_step": "Define and test a same-day closure response that prevents static signs sending visitors to an unavailable point."
+      },
+      {
+        "condition": "Refill-point operating hours are decided and any sign claim matches them.",
+        "required_for_outcome": true,
+        "status": "unverified",
+        "evidence": [
+          {
+            "kind": "file",
+            "path": "sources/operations-note.md",
+            "lines": [
+              7,
+              7
+            ]
+          }
+        ],
+        "verification_step": "Set and record operating hours; verify all displayed hours and any evening-service language against that decision."
+      },
+      {
+        "condition": "Management has approved deployment of the sign design.",
+        "required_for_outcome": true,
+        "status": "contradicted",
+        "evidence": [
+          {
+            "kind": "file",
+            "path": "sources/operations-note.md",
+            "lines": [
+              6,
+              6
+            ]
+          }
+        ],
+        "verification_step": "Seek management approval only after the factual and cost gates are resolved; do not treat the supplier assertion as an approval record."
+      }
+    ],
+    "adopted_clauses": [
+      "Use the documented paved south-gate to West Canopy route as the step-free candidate.",
+      "Test physical water-symbol and arrow signs at surveyed decision points, and explicitly avoid the lawn shortcut and east fountain.",
+      "Preserve all shade, sign-location, comprehension, hours, full-cost, closure-response, and approval gates before any deployment claim."
+    ],
+    "rejected_approaches": [
+      {
+        "approach": "Supplier QR-only live map",
+        "reason": "It requires a smartphone and live status support despite the brief and operations constraints; the vendor approval assertion is not an approval record."
+      }
+    ],
+    "dissent": [
+      "j1.r1 judged a1 keep as a conditional concept, but it also identified an untested east-fountain misroute and same-day closure procedure.",
+      "j2.r1 judged a2 revise for untested guide uptake and later use; d2.r2 addressed the test design and j2.r2 judged it keep, but the test has not run.",
+      "a2 remains a conditional alternative, not a selected design; its gate-handout and paper-handling capacity add unverified delivery dependencies."
+    ],
+    "uncertainty": [
+      "West Canopy shade is not stated in the packet; its name is not evidence of shade.",
+      "Neither a1 nor a2 has a complete pilot cost or observed navigation success.",
+      "Operating hours, placement permission, same-day closure handling, and management approval are unresolved."
+    ],
+    "recommendation": "Do not select a design yet. Prioritize a bounded validation of a1 physical signs: first verify actual shade at West Canopy and survey accessible sign placements, then prototype the sign trail and test misroutes; obtain full cost, operating hours, closure rule, and approval before a deployment decision. Keep a2 as a conditional fallback for a separate ordinary-gate uptake and handling test. This is a test direction, not a claim that a1 meets the brief.",
+    "design_approval": "pending",
+    "written_prd_review": "pending"
+  },
+  "ledger": "LEDGER.md",
+  "events": "events.ndjson"
+}

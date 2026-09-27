@@ -1,6 +1,6 @@
 # Public Evidence
 
-This directory contains no live receipts yet. Synthetic tests create disposable files outside the repository. They test the validators and never count as support proof.
+This directory contains no live host receipts yet. The [Codex method trial](codex-method-trial-2026-09-27.md) includes a synthetic source packet, campaign artifacts, and a path-rebased independent review report. It is a behavioral example, not a tested-host receipt. The test suite creates other disposable files outside the repository. Those tests exercise validators and never count as support proof.
 
 ## Receipt Contract
 
