@@ -60,6 +60,31 @@ class EventJournalTests(CampaignCase):
         self.assertEqual(validate_campaign(self.root), [])
         self.assertEqual(self.run_check("--leg", "g1")[0], 0)
 
+    def test_events_gate_rejects_duplicate_current_gather_lenses(self):
+        self.opt_in()
+        path = self.root / "digests" / "g2.json"
+        digest = json.loads(path.read_text())
+        digest["lens"] = " visitor ACCESS "
+        path.write_text(json.dumps(digest))
+        self.write_events(self.accepted_pair("g1", 1) + self.accepted_pair("g2", 3))
+        code, output = self.run_check("--events")
+        self.assertEqual(code, 1, output)
+        self.assertIn("duplicate gather lens", output)
+
+    def test_events_gate_ignores_unaccepted_future_gather_lens(self):
+        self.opt_in()
+        campaign = self.campaign()
+        campaign["roles"][1]["status"] = "incomplete"
+        campaign["synthesis"]["accepted_leg_ids"].remove("g2")
+        self.save_campaign(campaign)
+        path = self.root / "digests" / "g2.json"
+        digest = json.loads(path.read_text())
+        digest["lens"] = "Visitor access"
+        path.write_text(json.dumps(digest))
+        self.write_events(self.accepted_pair("g1", 1))
+        code, output = self.run_check("--events")
+        self.assertEqual(code, 0, output)
+
     def test_accepted_roles_need_prior_matching_validation(self):
         self.opt_in()
         self.write_events([self.acceptance(seq=1)])

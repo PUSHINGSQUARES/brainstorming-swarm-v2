@@ -619,6 +619,39 @@ def _digest_errors(root, role, digest, roles, approaches):
     return errors
 
 
+def _duplicate_gather_lens_errors(root, roles, focus_leg_id=None, include_incomplete=False):
+    """Reject repeated current gather lens names without requiring future digests."""
+    seen = {}
+    errors = []
+    for role in roles:
+        if not isinstance(role, dict) or role.get("role") != "gather":
+            continue
+        leg_id = role.get("leg_id")
+        if not _filled(leg_id):
+            continue
+        status = role.get("status")
+        if status != "accepted" and not (
+            status == "incomplete" and (include_incomplete or leg_id == focus_leg_id)
+        ):
+            continue
+        artifact, issue = _local_file(root, role.get("artifact"), "artifact", "missing artifact")
+        if issue:
+            continue
+        digest, issue = _read_json(artifact, "artifact %s" % leg_id)
+        if issue or not _filled(digest.get("lens")):
+            continue
+        if (digest.get("role") != "gather" or digest.get("leg_id") != leg_id
+                or digest.get("artifact") != role.get("artifact")):
+            continue
+        lens = " ".join(digest["lens"].split()).casefold()
+        first_leg = seen.get(lens)
+        if first_leg is not None and (focus_leg_id is None or focus_leg_id in (first_leg, leg_id)):
+            errors.append("duplicate gather lens: %s repeats %s" % (leg_id, first_leg))
+        else:
+            seen.setdefault(lens, leg_id)
+    return errors
+
+
 def validate_campaign(root: Path):
     """Check a campaign's links, digest shapes, and local artifacts."""
     root = Path(root)
@@ -647,6 +680,7 @@ def validate_campaign(root: Path):
         return errors
     if not roles:
         errors.append("campaign.roles must not be empty")
+    errors.extend(_duplicate_gather_lens_errors(root, roles, include_incomplete=True))
     role_by_id = {r["leg_id"]: r for r in roles if isinstance(r, dict) and _filled(r.get("leg_id"))}
     solo_analysis = campaign.get("status") == "solo_analysis"
     if solo_analysis:
@@ -772,6 +806,8 @@ def validate_leg(root: Path, leg_id: str):
         errors.append("campaign.approaches must be a list")
         approaches = []
     errors.extend(_digest_errors(root, role, digest, roles, approaches))
+    if role.get("role") == "gather":
+        errors.extend(_duplicate_gather_lens_errors(root, roles, focus_leg_id=leg_id))
     return errors
 
 
@@ -780,7 +816,7 @@ def main(argv=None):
     parser.add_argument("root", type=Path, help="Campaign directory")
     selected = parser.add_mutually_exclusive_group()
     selected.add_argument("--leg", help="Check one leg's structure and journal status")
-    selected.add_argument("--events", action="store_true", help="Check journal and current roles without requiring future digests")
+    selected.add_argument("--events", action="store_true", help="Check journal, current roles, and present gather lenses without requiring future digests")
     args = parser.parse_args(argv)
     if args.events:
         campaign_path = args.root / "campaign.json"
@@ -790,6 +826,8 @@ def main(argv=None):
             campaign, errors = _read_json(campaign_path, "campaign.json")
             if not errors:
                 errors = validate_role_map(campaign) + validate_events(args.root, campaign)
+                if isinstance(campaign.get("roles"), list):
+                    errors.extend(_duplicate_gather_lens_errors(args.root, campaign["roles"]))
     else:
         errors = validate_leg(args.root, args.leg) if args.leg is not None else validate_campaign(args.root)
     for error in errors:
@@ -797,7 +835,7 @@ def main(argv=None):
     if args.leg is not None:
         print("Leg %s: structure only for the selected digest; journal status checked when opted in; other planned digests are unchecked." % args.leg)
     if args.events:
-        print("Events: journal and current role status only; future planned digests are unchecked.")
+        print("Events: journal, current role status, and present gather lens names only; future planned digests are unchecked.")
     campaign_path = args.root / "campaign.json"
     if campaign_path.is_file():
         campaign, parse_errors = _read_json(campaign_path, "campaign.json")

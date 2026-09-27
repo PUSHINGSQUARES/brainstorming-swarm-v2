@@ -53,6 +53,8 @@ For a solo campaign, set `campaign.status` to `solo_analysis`, remove unused pla
 
 Select two or three distinct discovery lenses. For the invented library, visitor accessibility, staff maintenance, and spatial constraints pose different questions. Restating one question with new role names does not create independent discovery.
 
+The checker rejects repeated gather lens names after case and whitespace normalization. Reviewers still decide whether differently worded lenses ask genuinely different questions.
+
 Run independent gathers concurrently when permitted by host capacity and the agreed budget. Keep each gather's inputs bounded and prevent it from reading sibling conclusions before producing its own digest. Each [gather](../templates/gather.json) separates observations, inferences, and gaps.
 
 Each gather finding records one source fact under a stable `finding_id`, with one typed `evidence` object. Keep the fact in `source_fact`; do not blend an inference or a second source into it. Put conclusions in the separate `inferences` list. An inference has a `claim` and `premise_ids` referring to one or more existing finding IDs. A cross-source inference names every factual premise. It has no direct `evidence` field; its support comes from the separately anchored findings.

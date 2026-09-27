@@ -50,6 +50,26 @@ class LegCheckTests(CampaignCase):
         self.assertIn("g1", output)
         self.assertIn("structure only", output.lower())
 
+    def test_selected_gather_ignores_malformed_future_gather_rows(self):
+        campaign = self.campaign()
+        campaign["roles"].append({"leg_id": "g3", "role": "gather", "status": [],
+                                  "artifact": "digests/g3.json"})
+        self.save_campaign(campaign)
+        self.assertEqual(self.check_leg()[0], 0)
+
+        campaign["roles"][-1] = {"leg_id": [], "role": "gather", "status": "accepted",
+                                 "artifact": "digests/g1.json"}
+        self.save_campaign(campaign)
+        self.assertEqual(self.check_leg()[0], 0)
+
+    def test_selected_gather_ignores_future_role_pointing_to_other_digest(self):
+        campaign = self.campaign()
+        campaign["roles"].append({"leg_id": "g3", "role": "gather", "status": "incomplete",
+                                  "artifact": "digests/g1.json"})
+        self.save_campaign(campaign)
+        code, output = self.check_leg()
+        self.assertEqual(code, 0, output)
+
     def test_incomplete_row_can_validate_corrected_r2_before_acceptance(self):
         campaign = self.campaign()
         campaign["roles"][0]["status"] = "incomplete"
@@ -62,7 +82,7 @@ class LegCheckTests(CampaignCase):
         self.assertIn("positive [start, end] range", output)
         corrected = self.digest("g2")
         corrected.update(leg_id="g1", artifact="digests/g1.r2.json", revision=2,
-                         supersedes="digests/g1.json")
+                         supersedes="digests/g1.json", lens=first["lens"])
         (self.root / "digests" / "g1.r2.json").write_text(json.dumps(corrected))
         campaign["roles"][0]["artifact"] = "digests/g1.r2.json"
         self.save_campaign(campaign)
