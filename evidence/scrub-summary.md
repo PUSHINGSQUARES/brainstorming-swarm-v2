@@ -4,7 +4,7 @@
 
 This repository begins with a fresh public root commit. Its Git history does not include the private development candidate. Test session IDs are deliberately fabricated UUIDs.
 
-The release gate covers every tracked file, untracked and ignored release-directory file, commit metadata, and every local Git object. It combines literal checks with independent reviews by people who know the private source context. A token scan alone cannot detect a recognizable example or an opaque identifier copied from a real session.
+The release gate covers every tracked file, ordinary untracked files, ignored environment and key candidates, commit metadata, and every local Git object. It combines literal checks with independent reviews by people who know the private source context. A token scan alone cannot detect a recognizable example or an opaque identifier copied from a real session.
 
 ## Deterministic Checks
 
