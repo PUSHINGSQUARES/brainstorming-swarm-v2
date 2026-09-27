@@ -26,7 +26,16 @@ class SoloCampaignTests(unittest.TestCase):
                 "artifact": "digests/d1.json", "status": "accepted",
             }],
             "approaches": [{"approach_id": "a1", "author_leg_id": "d1"}],
-            "synthesis": {"accepted_leg_ids": ["d1"], "selected_approach_id": "a1"},
+            "synthesis": {
+                "accepted_leg_ids": ["d1"], "selected_approach_id": "a1",
+                "decision_dependencies": [{
+                    "condition": "The sign fits the chosen wall.",
+                    "required_for_outcome": True,
+                    "status": "supported",
+                    "evidence": [{"kind": "supplied", "id": "toy-wall-measurement"}],
+                    "verification_step": "",
+                }],
+            },
             "ledger": "LEDGER.md",
         }
         self.digest = {
@@ -53,6 +62,58 @@ class SoloCampaignTests(unittest.TestCase):
         self.assertIn("solo_analysis", output.getvalue())
         self.assertIn("Independent agents and judges did not run", output.getvalue())
         self.assertIn(LIMITS, output.getvalue())
+
+    def test_selected_approach_rejects_unverified_required_dependency(self):
+        dependency = self.campaign["synthesis"]["decision_dependencies"][0]
+        dependency["status"] = "unverified"
+        dependency["evidence"] = []
+        dependency["verification_step"] = "Measure the chosen wall before ordering the sign."
+        self.save()
+        self.assertIn(
+            "synthesis selected approach has unresolved required decision dependency",
+            validate_campaign(self.root),
+        )
+
+    def test_selected_approach_requires_a_dependency(self):
+        self.campaign["synthesis"]["decision_dependencies"] = []
+        self.save()
+        self.assertIn(
+            "synthesis selected approach requires a decision dependency",
+            validate_campaign(self.root),
+        )
+
+    def test_supported_dependency_requires_valid_evidence(self):
+        dependency = self.campaign["synthesis"]["decision_dependencies"][0]
+        dependency["evidence"] = []
+        self.save()
+        self.assertIn(
+            "synthesis.decision_dependencies[0] supported condition requires evidence",
+            validate_campaign(self.root),
+        )
+        dependency["evidence"] = [{"kind": "file", "path": "sources/absent.md", "lines": [1, 1]}]
+        self.save()
+        self.assertIn("missing evidence file: sources/absent.md", validate_campaign(self.root))
+
+    def test_unresolved_required_dependency_needs_verification_step(self):
+        dependency = self.campaign["synthesis"]["decision_dependencies"][0]
+        dependency["status"] = "contradicted"
+        dependency["evidence"] = []
+        dependency["verification_step"] = "  "
+        self.campaign["synthesis"]["selected_approach_id"] = None
+        self.save()
+        self.assertIn(
+            "synthesis.decision_dependencies[0].verification_step is required for unresolved required condition",
+            validate_campaign(self.root),
+        )
+
+    def test_unverified_required_dependency_can_be_left_unselected(self):
+        dependency = self.campaign["synthesis"]["decision_dependencies"][0]
+        dependency["status"] = "unverified"
+        dependency["evidence"] = []
+        dependency["verification_step"] = "Measure the wall."
+        self.campaign["synthesis"]["selected_approach_id"] = None
+        self.save()
+        self.assertEqual(validate_campaign(self.root), [])
 
     def test_normal_status_still_needs_judge(self):
         self.campaign["status"] = "design_pending"

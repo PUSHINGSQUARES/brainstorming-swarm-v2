@@ -19,7 +19,8 @@
   "approaches": [],
   "synthesis": {
     "accepted_leg_ids": [],
-    "selected_approach_id": null
+    "selected_approach_id": null,
+    "decision_dependencies": []
   },
   "ledger": "ledger.md"
 }

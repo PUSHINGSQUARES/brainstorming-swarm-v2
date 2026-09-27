@@ -1,6 +1,15 @@
 {
   "accepted_leg_ids": [],
   "selected_approach_id": null,
+  "decision_dependencies": [
+    {
+      "condition": "A factual condition required for the proposed approach to satisfy the outcome.",
+      "required_for_outcome": true,
+      "status": "unverified",
+      "evidence": [],
+      "verification_step": "Name the source check or test that could resolve this condition."
+    }
+  ],
   "adopted_clauses": [],
   "rejected_approaches": [],
   "dissent": [],

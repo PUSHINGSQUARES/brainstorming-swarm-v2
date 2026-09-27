@@ -16,6 +16,7 @@ VALID_SEVERITIES = {"none", "minor", "major", "critical"}
 VALID_STATUSES = {"accepted", "incomplete", "failed", "cancelled", "termination_unknown"}
 VALID_CAMPAIGN_STATUSES = {"design_pending", "solo_analysis"}
 VALID_AVAILABILITY = {"available", "unavailable", "unsupported", "unknown", "unverified"}
+VALID_DEPENDENCY_STATUSES = {"supported", "unverified", "contradicted"}
 LIMITS = "Structure and local presence only. Citation truth, author identity, reasoning quality, concurrency, cancellation, and freshness are unverified."
 EVENT_LIMITS = "Journal order is local evidence only. Source truth, native start time, prior-byte preservation, and operator-supplied timestamps are unverified. With null sha256, artifact tampering cannot be checked."
 MAX_EVENTS = 10000
@@ -140,7 +141,13 @@ def _local_file(root, relative, label, missing_label):
         path = Path(relative)
         if path.is_absolute() or ".." in path.parts:
             return None, ["%s escapes campaign root: %s" % (label, relative)]
-        resolved = (root / path).resolve()
+        unresolved = root / path
+        resolved = unresolved.resolve()
+        resolved.relative_to(root.resolve())
+        try:
+            resolved = unresolved.resolve(strict=True)
+        except FileNotFoundError:
+            return None, ["%s: %s" % (missing_label, relative)]
         resolved.relative_to(root.resolve())
     except ValueError:
         if "\x00" in relative:
@@ -432,6 +439,44 @@ def _nonblank_list(value, label):
     return []
 
 
+def _decision_dependency_errors(root, synthesis):
+    """Check stated decision conditions, without claiming their sources are true."""
+    selected = synthesis.get("selected_approach_id")
+    dependencies = synthesis.get("decision_dependencies", [])
+    if not isinstance(dependencies, list):
+        return ["synthesis.decision_dependencies must be a list"]
+    errors = []
+    if selected is not None and not dependencies:
+        errors.append("synthesis selected approach requires a decision dependency")
+    for index, dependency in enumerate(dependencies):
+        label = "synthesis.decision_dependencies[%d]" % index
+        if not isinstance(dependency, dict):
+            errors.append("%s must be an object" % label)
+            continue
+        if not _filled(dependency.get("condition")):
+            errors.append("%s.condition is required" % label)
+        required = dependency.get("required_for_outcome")
+        if not isinstance(required, bool):
+            errors.append("%s.required_for_outcome must be a boolean" % label)
+        status = dependency.get("status")
+        if not isinstance(status, str) or status not in VALID_DEPENDENCY_STATUSES:
+            errors.append("%s.status must be supported, unverified, or contradicted" % label)
+        evidence = dependency.get("evidence")
+        if not isinstance(evidence, list):
+            errors.append("%s.evidence must be a list" % label)
+        else:
+            for anchor_index, anchor in enumerate(evidence):
+                errors.extend(_anchor_errors(root, anchor, "%s.evidence[%d]" % (label, anchor_index)))
+            if status == "supported" and not evidence:
+                errors.append("%s supported condition requires evidence" % label)
+        if required is True and isinstance(status, str) and status in {"unverified", "contradicted"}:
+            if not _filled(dependency.get("verification_step")):
+                errors.append("%s.verification_step is required for unresolved required condition" % label)
+            if selected is not None:
+                errors.append("synthesis selected approach has unresolved required decision dependency")
+    return errors
+
+
 def _digest_errors(root, role, digest, roles, approaches):
     """Validate one current digest and the prerequisites named by it."""
     leg_id = role.get("leg_id", "<unknown>")
@@ -712,6 +757,7 @@ def validate_campaign(root: Path):
         errors.extend(issue)
     synthesis = campaign.get("synthesis")
     if isinstance(synthesis, dict):
+        errors.extend(_decision_dependency_errors(root, synthesis))
         accepted = synthesis.get("accepted_leg_ids", [])
         if not isinstance(accepted, list):
             errors.append("synthesis.accepted_leg_ids must be a list")

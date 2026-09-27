@@ -16,6 +16,7 @@ from uuid import UUID
 MAX_ROLLOUT_BYTES = 32 * 1024 * 1024
 MAX_LINE_BYTES = 4 * 1024 * 1024
 MAX_RECORDS = 100_000
+MAX_JSON_DEPTH = 256
 
 
 class RouteError(Exception):
@@ -29,6 +30,19 @@ def _unique_keys(pairs):
             raise ValueError("duplicate JSON key")
         result[key] = value
     return result
+
+
+def _check_json_depth(value):
+    """Bound nested rollout records independently of JSON decoder behavior."""
+    pending = [(value, 0)]
+    while pending:
+        item, depth = pending.pop()
+        if depth > MAX_JSON_DEPTH:
+            raise RouteError("rollout unreadable or malformed")
+        if isinstance(item, dict):
+            pending.extend((child, depth + 1) for child in item.values())
+        elif isinstance(item, list):
+            pending.extend((child, depth + 1) for child in item)
 
 
 def _matching_rollout(root, thread_id):
@@ -124,6 +138,7 @@ def verify_route(thread_id, expected_model, expected_effort, session_root):
                 if total_bytes > MAX_ROLLOUT_BYTES or record_count > MAX_RECORDS:
                     raise RouteError("rollout exceeds size or record limit")
                 entry = json.loads(line.decode("utf-8"), object_pairs_hook=_unique_keys)
+                _check_json_depth(entry)
                 if not isinstance(entry, dict) or not isinstance(entry.get("type"), str):
                     raise RouteError("malformed session record")
                 kind = entry["type"]

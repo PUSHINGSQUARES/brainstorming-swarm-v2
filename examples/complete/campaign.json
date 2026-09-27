@@ -101,6 +101,22 @@
       "j-stand"
     ],
     "selected_approach_id": null,
+    "decision_dependencies": [
+      {
+        "condition": "The freestanding concept is readable at the intended viewing distance.",
+        "required_for_outcome": true,
+        "status": "unverified",
+        "evidence": [],
+        "verification_step": "Run a viewing trial at the intended distance."
+      },
+      {
+        "condition": "The freestanding concept can be placed safely at a permitted location.",
+        "required_for_outcome": true,
+        "status": "unverified",
+        "evidence": [],
+        "verification_step": "Confirm placement permission and complete a mounting safety review."
+      }
+    ],
     "adopted_clauses": [],
     "rejected_approaches": [
       "decal"

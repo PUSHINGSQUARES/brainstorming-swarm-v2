@@ -32,7 +32,8 @@
   "approaches": [],
   "synthesis": {
     "accepted_leg_ids": ["g1", "g2"],
-    "selected_approach_id": null
+    "selected_approach_id": null,
+    "decision_dependencies": []
   },
   "ledger": "LEDGER.md"
 }
